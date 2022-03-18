@@ -1,0 +1,103 @@
+[pull]
+	rebase = true
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+[alias]
+    ###-- log aliases --###
+    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
+    ###-- add aliases --###
+    a = add
+    ap = add -p
+    ai = add -i
+
+    ###-- commit aliases --###
+    c = commit --verbose
+    ca = commit -a --verbose
+    cm = commit -m
+    cam = commit -a -m
+    m = commit --amend --verbose
+    
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+
+    ###-- status aliases --###
+    s = status -s
+
+    ###-- checkout aliases --###
+    co = checkout
+    cob = checkout -b
+
+    unstage = reset --soft HEAD^
+    fuckup = reset --hard HEAD
+    
+    ###-- pull aliases --###
+    pr = pull --rebase
+    p = pull
+    
+    ###-- fetch aliases --###
+    f = fetch --all
+    fv = fetch --all --verbose
+
+    ###-- push aliases --###
+    u = push
+    ut = push --tags
+
+    ###-- diff aliases --###
+    # Show changes not yet staged
+    dc = diff --cached
+
+    # Show changes about to be commited
+    ds = diff --staged
+
+    # Show changes but by word, not line
+    dw = diff --word-diff
+
+    # Show changes with our preferred options; a.k.a. `diff-deep`
+    dd = diff-deep
+
+    ###-- branch aliases --###
+    # list branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+
+    ###-- rebase aliases --###
+    rb = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbs = rebase --skip
+    rbi = rebase --interactive
+    # rbiu - rebase interactive on our unpushed commits.
+    #
+    # Before we push our local changes, we may want to do some cleanup,
+    # to improve our commit messages or squash related commits together.
+    rbiu = rebase --interactive @{upstream}
+    # See https://blog.filippo.io/git-fixup-amending-an-older-commit/
+    # This is a slightly modified version
+    fixup = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; }; f"
+
+    # fast branch switch like a real ninja
+    dev = !git checkout develop && git pull origin develop
+    master = !git checkout master && git pull origin
+    main = !git checkout main && git pull origin
+
+    # stash, because I don't like shelf like my team mates
+    sl = stash list
+    sa = stash apply
+    ss = stash save
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"%  
