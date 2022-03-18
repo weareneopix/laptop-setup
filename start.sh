@@ -36,14 +36,12 @@ brew install --cask \
     discord \
     slack \
     spotify \
-    postgres \
     notion \
     postico \
-    bear \
     opera \
     vlc \
-    zoom \
-    todoist
+    citrix-workspace \
+    zoom
 
 
 fancy_echo "Vim Setup ..."
