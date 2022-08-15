@@ -25,7 +25,7 @@ brew install --cask \
     iterm2 \
     1password \
     1password-cli \
-    dozer \
+    hiddenbar \
     imageoptim \
     visual-studio-code \
     google-chrome \
