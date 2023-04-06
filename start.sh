@@ -42,7 +42,8 @@ brew install --cask \
     opera \
     vlc \
     citrix-workspace \
-    zoom
+    zoom \
+    shottr
 
 
 # make cache folder (if missing) and take ownership
