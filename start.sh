@@ -7,8 +7,6 @@ fancy_echo() {
 
 fancy_echo "Installing Git, and other utilities ..."
 brew install \
-    docker \
-    docker-compose \
     git \
     vim \
     tree \
@@ -29,7 +27,7 @@ brew install --cask \
     imageoptim \
     visual-studio-code \
     google-chrome \
-    jetbrains-toolbox\
+    jetbrains-toolbox \
     caffeine \
     sublime-text \
     firefox \
@@ -43,7 +41,8 @@ brew install --cask \
     vlc \
     citrix-workspace \
     zoom \
-    shottr
+    shottr \
+    docker
 
 
 # make cache folder (if missing) and take ownership
