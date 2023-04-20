@@ -6,7 +6,7 @@ fancy_echo() {
 }
 
 fancy_echo "Installing Git, and other utilities ..."
-brew install \
+brew install --ignore-dependencies \
     git \
     vim \
     tree \
@@ -18,7 +18,7 @@ brew install \
     fzf
 
 fancy_echo "Installing Applications ..."
-brew install --cask \
+brew install --cask --ignore-dependencies \
     alfred \
     iterm2 \
     1password \
